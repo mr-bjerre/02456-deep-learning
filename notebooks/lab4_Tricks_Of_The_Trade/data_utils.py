@@ -170,7 +170,7 @@ class batch_generator():
                 batch = self._batch_init(purpose='valid')
                 i = 0
         if i != 0:
-            yield batch, i
+            yield {k: v[:i] for k, v in batch.items()}, i
 
     def gen_test(self):
         batch = self._batch_init(purpose='test')
